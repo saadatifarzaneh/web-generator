@@ -33,7 +33,7 @@ export async function saveData() {
     // Set the viewport size
     await page.setViewport({ width: viewport.width, height: viewport.height });
 
-    for (let index = 1; index <= 1; index++) {
+    for (let index = 1; index <= 5; index++) {
         console.log(`To process page ${index}`)
         await page.goto("http://localhost");
 
