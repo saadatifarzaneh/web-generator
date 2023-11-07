@@ -4,7 +4,7 @@ import { promises as fs } from "fs"
 const output_dir = "outputs"
 const viewport = {
     width: 1920, // width of the viewport in pixels
-    height: 1080, // height of the viewport in pixels
+    height: 2160, // height of the viewport in pixels
 };
 
 
