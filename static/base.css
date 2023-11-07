@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Inter:wght@300;400;500&family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;500&display=swap');
+
+/* 
+img {
+    max-height: 100px;
+} */
+
+.menu {
+    margin: 1em 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    font-size: 32px;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 0 1em;
+}
+
+.side .menu {
+    color: white;
+    margin: 0;
+    padding: 1em 0;
+    text-align: center;
+    list-style: none;
+    font-size: 32px;
+}
+
+.side .menu li {
+    display: block;
+    padding: .5em 0;
+}

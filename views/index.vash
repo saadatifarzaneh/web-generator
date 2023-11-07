@@ -1,0 +1,15 @@
+<html>
+
+<head>
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="random.css" />
+</head>
+
+<body>
+    @for (const el of model.content) {
+        @html.include(el.template, el.data)
+    }
+</body>
+
+</html>

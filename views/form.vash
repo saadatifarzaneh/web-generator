@@ -1,0 +1,6 @@
+<form>
+    <p><label>Email:</label> <input type="email" class="save email" /></p>
+    <p><label>Password:</label> <input type="password" class="save password" /></p>
+    <p><input type="checkbox"> <label>Remember me</label></p>
+    <p><input type="submit" value="Sign In" /></p>
+</form>

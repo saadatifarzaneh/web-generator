@@ -1,0 +1,17 @@
+<table style="width: 100%">
+    <tr>
+        <td style="width: 15%" class="side">
+            <div style="padding: 3px">
+                @html.include(model[0])
+            </div>
+        </td>
+
+        <td>
+            <div style="padding: 3px; padding-left: 1em">
+                @for (const el of model[1]) {
+                    @html.include(el.template, el.data)
+                }
+            </div>
+        </td>
+    </tr>
+</table>

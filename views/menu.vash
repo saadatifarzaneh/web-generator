@@ -1,0 +1,66 @@
+@{
+    const menuItems = [
+        'Home',
+        'About',
+        'Services',
+        'Products',
+        'Contact',
+        'Blog',
+        'FAQ',
+        'Support',
+        'Gallery',
+        'Events',
+        'Team',
+        'Careers',
+        'Testimonials',
+        'Clients',
+        'Portfolio',
+        'News',
+        'Shop',
+        'Privacy Policy',
+        'Terms of Service',
+        'Community',
+        'Webinars',
+        'Case Studies',
+        'Sustainability',
+        'Press',
+        'COVID-19',
+        // More creative or specific items can be added
+        'Recipes',
+        'Our Story',
+        'Locations',
+        'Partnerships',
+        'Donations',
+        'Courses',
+        'Forums',
+        'Guides',
+        'Tutorials',
+        'Webcasts',
+        'Projects',
+        'Innovations',
+        'Insights',
+        'Statistics',
+        'Infographics',
+        'Reviews',
+        'Comparisons',
+        'Contests',
+        'Podcasts',
+        'Interviews',
+        'Q&A'
+        // Add as many as you see fit for your randomization needs
+    ];
+
+    const numItems = Math.floor(Math.random() * 6) + 4;
+
+    var items = [];
+    for (var i = 0; i < numItems; i++) {
+        items.push(menuItems[Math.floor(Math.random() * menuItems.length)]);
+    }
+}
+
+<ul class="menu">
+@for (const item of items)
+{
+    <li>@item</li>
+}
+</ul>

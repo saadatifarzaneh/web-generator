@@ -1,0 +1,10 @@
+<form>
+    <p><label>First name</label> <input type="text" class="save" /></p>
+    <p><label>Last name</label> <input type="text" class="save" /></p>
+    <p><label>Username</label> <input type="text" class="save" /></p>
+    <p><label>City</label> <input type="text" /></p>
+    <p><label>State</label> <input type="text" /></p>
+    <p><label>Zip</label> <input type="text" /></p>
+    <p><input type="checkbox"> <label>Agree to terms and conditions</label></p>
+    <p><input type="submit" /></p>
+</form>
