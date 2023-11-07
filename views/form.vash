@@ -1,6 +1,11 @@
 <form>
-    <p><label>Email:</label> <input type="email" class="save email" /></p>
-    <p><label>Password:</label> <input type="password" class="save password" /></p>
-    <p><input type="checkbox"> <label>Remember me</label></p>
-    <p><input type="submit" value="Sign In" /></p>
+    <p>
+        <label class="save" data-type="email-label">Email:</label>
+        <input type="email" class="save" data-type="email-input" />
+    </p>
+    <p>
+        <label class="save" data-type="password-label">Password:</label>
+        <input type="password" class="save" data-type="password-input" /></p>
+    <p><input type="checkbox" class="save" data-type="checkbox"> <label>Remember me</label></p>
+    <p><input type="submit" value="Sign In" class="save" data-type="button-submit" /></p>
 </form>
