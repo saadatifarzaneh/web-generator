@@ -1,5 +1,8 @@
 import express from 'express'
-import {RecaptchaV2 as Recaptcha} from 'express-recaptcha'
+import { readdirSync } from 'fs';
+import { basename } from 'path';
+
+import { RecaptchaV2 as Recaptcha } from 'express-recaptcha'
 var options = { hl: 'en' , type: 'image'}
 var recaptcha = new Recaptcha('6LfuT-UoAAAAAGK7rlMWNXAFxxqqax2zZQcMfFJh', '6LfuT-UoAAAAAJLymzHzZUD1zJENyr-n3rzoBLvt', options)
 
@@ -8,15 +11,28 @@ function selectFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-const numForm = 5
+const getFormsFilenames = (formsDir) => {
+    try {  
+        const files = readdirSync(formsDir);
+        return files
+            .filter(file => file.endsWith('.vash'))
+            .map(file => basename(file, '.vash'));
+    } catch (err) {
+        console.error('Error reading captcha directory:', err);
+        return [];
+    }
+};
+
+const formsDir = './views/forms/';
+const formsFilenames = getFormsFilenames(formsDir);
+
 function randomForm() {
-    return `forms/form${Math.floor(Math.random() * numForm) + 1}`
-    // return `forms/form${5}`
+    return `forms/${selectFrom(formsFilenames)}`;
+    // return `forms/form4`;
 }
 
 export function startServer() {
     const app = express()
-
     app.use(express.static('static'));
     //app.set('views', 'views');
     app.set('view engine', 'vash');
