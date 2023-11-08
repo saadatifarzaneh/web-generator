@@ -1,11 +1,19 @@
-<div>
-    <div style="display: inline-block; width: 50%; vertical-align: middle">
-        <div style="padding: 3px">
-            @html.include(model[0])
-        </div>
-    </div><div style="display: inline-block; width: 50%; vertical-align: middle">
-        <div style="padding: 3px">
-            @html.include(model[1])
-        </div>
-    </div>
-</div>
+<table style="width: 100%" class="half">
+    <tr>
+        <td style="width: 50%">
+            <div style="padding: 3px">
+                @for (const el of model[0]) {
+                    @html.include(el.template, el.data)
+                }
+            </div>
+        </td>
+
+        <td>
+            <div style="padding: 3px; padding-left: 1em">
+                @for (const el of model[1]) {
+                    @html.include(el.template, el.data)
+                }
+            </div>
+        </td>
+    </tr>
+</table>

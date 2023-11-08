@@ -1,0 +1,69 @@
+<form>
+    <table>
+        <tr>
+            <td>
+                <label class="save" data-type="label-name">First name</label>
+            </td>
+            <td>
+                <input type="text" class="save" data-type="input-name" />
+            </td>
+        </tr> 
+
+        <tr>
+            <td>
+                <label class="save" data-type="label-name">Last name</label>
+            </td>
+            <td>
+                <input type="text" class="save" data-type="input-name" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label class="save" data-type="label-username">Username</label>
+            </td>
+            <td>
+                <input type="text" class="save" data-type="input-username"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label class="save" data-type="label-address">Address line 1</label>
+            </td>
+            <td>
+                <input type="text" class="save" data-type="input-address"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label class="save" data-type="label-address">Address line 2 (optional)</label>
+            </td>
+            <td>
+                <input type="text" class="save" data-type="input-address"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Country</label></td>
+            <td><input type="text" class="save" data-type="input-address"/></td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="checkbox" class="save" data-type="checkbox">
+            </td>
+            <td>
+                <label>Agree to terms and conditions</label>
+            </td>
+        </tr>     
+
+        <tr>
+            <td>
+                <input type="submit" class="save" value="Sign In" data-type="button-login" />
+            </td>
+            <td></td>
+        </tr>
+    </table>     
+</form>

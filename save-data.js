@@ -23,7 +23,7 @@ function findElements() {
     return data;
 }
     
-export async function saveData() {
+export async function saveData(numPages) {
     const browser = await puppeteer.launch({
         headless: 'new' // Opt-in to the new headless mode
         // ... include any other options you need
@@ -33,8 +33,8 @@ export async function saveData() {
     // Set the viewport size
     await page.setViewport({ width: viewport.width, height: viewport.height });
 
-    for (let index = 1; index <= 5; index++) {
-        console.log(`To process page ${index}`)
+    for (let index = 1; index <= numPages; index++) {
+        console.log(`Processing page ${index}/${numPages}`)
         await page.goto("http://localhost");
 
         const screenshotPath = `${output_dir}/page_${index}.png`;

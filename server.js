@@ -3,8 +3,14 @@ import {RecaptchaV2 as Recaptcha} from 'express-recaptcha'
 var options = { hl: 'en' , type: 'image'}
 var recaptcha = new Recaptcha('6LfuT-UoAAAAAGK7rlMWNXAFxxqqax2zZQcMfFJh', '6LfuT-UoAAAAAJLymzHzZUD1zJENyr-n3rzoBLvt', options)
 
+
 function selectFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+const numForm = 4
+function randomForm() {
+    return `forms/form${Math.floor(Math.random() * numForm) + 1}`
 }
 
 export function startServer() {
@@ -21,23 +27,38 @@ export function startServer() {
                 { template: 'image' , data: ['100', '200']},
                 {
                     template: 'sidebar', data: ['menu', [
-                        { template: 'form2' },
-                        { template: 'half', data: ['image', 'form1'] }
+                        { template: randomForm() },
+                        {
+                            template: 'half', data: [
+                                [ { template: 'image' , data: ['0', '1000']} ],
+                                [ { template: randomForm() } ]
+                            ]
+                        }
                     ]]
                 },
                 {
-                    template: 'sidebar', data: ['menu', [{ template: 'form2' }]]
+                    template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
                 },
                 { template: 'recaptcha', data: res.recaptcha },
-                { template: 'half', data: ['form1', 'form1'] }
+                {
+                    template: 'half', data: [
+                        [{ template: randomForm() }],
+                        [{ template: randomForm() }]
+                    ]
+                }
             ],
             [
                 { template: 'menu' },
                 { template: 'image' , data: ['20', '100']},
                 {
                     template: 'sidebar', data: ['menu', [
-                        { template: 'form2' },
-                        { template: 'half', data: ['image', 'form1'] }
+                        { template: randomForm() },
+                        {
+                            template: 'half', data: [
+                                [ { template: 'image' , data: ['0', '1000']} ],
+                                [ { template: randomForm() } ]
+                            ]
+                        }
                     ]]
                 },
                 { template: 'image' }
@@ -45,7 +66,12 @@ export function startServer() {
     
             [
                 { template: 'image' },
-                { template: 'half', data: ['image', 'form2'] },
+                {
+                    template: 'half', data: [
+                        [ { template: 'image' , data: ['0', '1000']} ],
+                        [ { template: randomForm() } ]
+                    ]
+                },
                 { template: 'image' }
             ]
         ]
@@ -64,9 +90,9 @@ export function startServer() {
         const randomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
         const randomBackground = () => {
             const backGroundType = Math.random();
-            if (backGroundType < .55)
+            if (backGroundType < .30)
                 return `background-image: url('https://picsum.photos/seed/${Math.random().toString(36).substring(7)}/1920/1080'); background-size: cover;`;
-            if (backGroundType < .85)
+            if (backGroundType < .75)
                 return `background-color: ${randomColor()};`;
             return '';
         }
@@ -82,7 +108,7 @@ export function startServer() {
         }
 
         .side {
-            background: ${sideColor}
+            background: ${sideColor} !important;
         }
     `);
     })
