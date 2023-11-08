@@ -7,6 +7,7 @@ This program tries to
 ## requirements
 * install Node.js
 * run \<npm install\>
+* run the program \<node main.js\>
 
 ## supported labels (so far)
 label-name\
@@ -27,7 +28,13 @@ button-search\
 button-download\
 checkbox\
 recaptcha\
-video\
+video
+
+
+## important files
+server.js
+views/forms/*
+
 
 ## random images
 https://source.unsplash.com/random/${width}x${height}
