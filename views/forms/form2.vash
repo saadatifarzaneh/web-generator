@@ -29,7 +29,7 @@
 
         <tr>
             <td>
-                <label class="save" data-type="label-address">Address line 1</label>
+                <label class="save" data-type="label-address">Addr. line 1</label>
             </td>
             <td>
                 <input type="text" class="save" data-type="input-address"/>
@@ -38,7 +38,7 @@
 
         <tr>
             <td>
-                <label class="save" data-type="label-address">Address line 2 (optional)</label>
+                <label class="save" data-type="label-address">Addr. line 2<br>(optional)</label>
             </td>
             <td>
                 <input type="text" class="save" data-type="input-address"/>

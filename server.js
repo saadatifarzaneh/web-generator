@@ -8,9 +8,10 @@ function selectFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-const numForm = 4
+const numForm = 5
 function randomForm() {
     return `forms/form${Math.floor(Math.random() * numForm) + 1}`
+    // return `forms/form${5}`
 }
 
 export function startServer() {
@@ -36,16 +37,7 @@ export function startServer() {
                         }
                     ]]
                 },
-                {
-                    template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
-                },
                 { template: 'recaptcha', data: res.recaptcha },
-                {
-                    template: 'half', data: [
-                        [{ template: randomForm() }],
-                        [{ template: randomForm() }]
-                    ]
-                }
             ],
             [
                 { template: 'menu' },
@@ -73,9 +65,20 @@ export function startServer() {
                     ]
                 },
                 { template: 'image' }
+            ],
+
+            [
+                { template: 'image' },
+                {
+                    template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
+                },
+                { template: 'image' }
             ]
         ]
-    
+
+
+
+
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
             content: selectFrom(templates)

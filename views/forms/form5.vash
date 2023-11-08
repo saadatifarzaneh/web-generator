@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <!-- Form -->
+  <form>
+    <!-- Search Field -->
+    <div class="form-group">
+      <label for="searchInput" class="save" data-type="label-search">Search</label>
+      <input type="text" class="form-control save" id="searchInput" data-type="input-search" placeholder="Enter search term">
+    </div>
+    <!-- Search Button -->
+    <button type="submit" class="btn btn-primary save" data-type="button-search">Search</button>
+    <!-- Download Button -->
+    <button type="button" class="btn btn-secondary save" data-type="button-download">Download</button>
+  </form>
+</div>

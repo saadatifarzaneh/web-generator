@@ -19,8 +19,12 @@ label-password\
 input-password\
 label-address\
 input-address\
+label-search\
+input-search\
 button-login\
 button-submit\
+button-search\
+button-download\
 checkbox
 
 ## random images
