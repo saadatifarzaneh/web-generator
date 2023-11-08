@@ -23,62 +23,81 @@ export function startServer() {
 
     app.get('/', recaptcha.middleware.render, async (req, res) => {
         const templates = [
+            //0
             [
                 { template: 'menu' },
-                { template: 'image' , data: ['100', '200']},
+                { template: 'image', data: ['100', '200'] },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: randomForm() },
                         {
                             template: 'half', data: [
-                                [ { template: 'image' , data: ['0', '1000']} ],
-                                [ { template: randomForm() } ]
+                                [{ template: 'video', data: ['0', '1000'] }],
+                                [{ template: randomForm() }]
                             ]
                         }
                     ]]
                 },
                 { template: 'recaptcha', data: res.recaptcha },
             ],
+
+            //1
             [
                 { template: 'menu' },
-                { template: 'image' , data: ['20', '100']},
+                { template: 'image', data: ['20', '100'] },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: randomForm() },
                         {
                             template: 'half', data: [
-                                [ { template: 'image' , data: ['0', '1000']} ],
-                                [ { template: randomForm() } ]
+                                [{ template: 'image', data: ['0', '1000'] }],
+                                [{ template: randomForm() }]
                             ]
                         }
                     ]]
                 },
                 { template: 'image' }
             ],
-    
+            
+            //2
             [
                 { template: 'image' },
                 {
                     template: 'half', data: [
-                        [ { template: 'recaptcha', data: res.recaptcha } ],
-                        [ { template: randomForm() } ]
+                        [{ template: 'recaptcha', data: res.recaptcha }],
+                        [{ template: 'video' }]
                     ]
                 },
-                { template: 'image' }
             ],
 
+            //3
             [
                 { template: 'image' },
                 {
                     template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
                 },
-                { template: 'recaptcha', data: res.recaptcha },
                 { template: 'image' }
+            ],
+
+            //4
+            [
+                {
+                    template: 'sidebar', data: ['menu', [
+                        { template: 'video' },
+                        {
+                            template: 'half', data: [
+                                [{ template: 'image', data: ['0', '1000'] }],
+                                [{ template: 'recaptcha', data: res.recaptcha }]
+                            ]
+                        }
+                    ]]
+                }
             ]
         ]
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
+            // content: templates[3]
             content: selectFrom(templates)
         });
     });
