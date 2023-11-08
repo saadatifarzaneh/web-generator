@@ -1,4 +1,3 @@
-
 import express from 'express'
 import {RecaptchaV2 as Recaptcha} from 'express-recaptcha'
 var options = { hl: 'en' , type: 'image'}
@@ -15,27 +14,46 @@ export function startServer() {
     //app.set('views', 'views');
     app.set('view engine', 'vash');
 
-
     app.get('/', recaptcha.middleware.render, async (req, res) => {
-        res.status(200).render('index', {
-            recaptcha: res.recaptcha,
-            content: [
+
+        const templates = [
+            [
                 { template: 'menu' },
-                { template: 'image' },
+                { template: 'image' , data: ['100', '200']},
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: 'form2' },
-                        { template: 'half', data: ['image', 'form'] }
+                        { template: 'half', data: ['image', 'form1'] }
                     ]]
                 },
                 {
                     template: 'sidebar', data: ['menu', [{ template: 'form2' }]]
                 },
                 { template: 'recaptcha', data: res.recaptcha },
+                { template: 'half', data: ['form1', 'form1'] }
+            ],
+            [
+                { template: 'menu' },
+                { template: 'image' , date: ['0', '100']},
+                {
+                    template: 'sidebar', data: ['menu', [
+                        { template: 'form2' },
+                        { template: 'half', data: ['image', 'form1'] }
+                    ]]
+                },
+                { template: 'image' }
+            ],
+    
+            [
+                { template: 'image' },
                 { template: 'half', data: ['image', 'form2'] },
-                { template: 'half', data: ['image', 'image'] },
-                { template: 'half', data: ['form', 'form'] }
+                { template: 'image' }
             ]
+        ]
+    
+        res.status(200).render('index', {
+            recaptcha: res.recaptcha,
+            content: selectFrom(templates)
         });
     });
 
