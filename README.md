@@ -27,6 +27,7 @@ button-search\
 button-download\
 checkbox\
 recaptcha\
+video\
 
 ## random images
 https://source.unsplash.com/random/${width}x${height}
