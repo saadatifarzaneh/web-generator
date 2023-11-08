@@ -15,7 +15,6 @@ export function startServer() {
     app.set('view engine', 'vash');
 
     app.get('/', recaptcha.middleware.render, async (req, res) => {
-
         const templates = [
             [
                 { template: 'menu' },
@@ -34,7 +33,7 @@ export function startServer() {
             ],
             [
                 { template: 'menu' },
-                { template: 'image' , date: ['0', '100']},
+                { template: 'image' , data: ['20', '100']},
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: 'form2' },

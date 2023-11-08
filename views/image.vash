@@ -1,5 +1,5 @@
 @{
-    var randomSize = model[0] == null ? 0 : model[0]
+    var randomSize = model[0] == null ? 50 : model[0]
     var minSize = model[1] == null ? 200 : model[1]
     var height = Math.floor(Math.random() * randomSize + minSize);
 }
