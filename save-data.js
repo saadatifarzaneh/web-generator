@@ -7,7 +7,6 @@ const viewport = {
     height: 2160, // height of the viewport in pixels
 };
 
-
 function findElements() {
     let data = [];
     document.querySelectorAll('.save').forEach(el => {
@@ -20,6 +19,18 @@ function findElements() {
             height: rect.height
         });
     });
+
+    document.querySelectorAll('iframe[title="reCAPTCHA"]').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        data.push({
+            type: 'recaptcha',
+            x: rect.left,
+            y: rect.top,
+            width: rect.width,
+            height: rect.height
+        });
+    });
+    
     return data;
 }
     

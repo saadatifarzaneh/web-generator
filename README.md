@@ -25,7 +25,8 @@ button-login\
 button-submit\
 button-search\
 button-download\
-checkbox
+checkbox\
+recaptcha\
 
 ## random images
 https://source.unsplash.com/random/${width}x${height}

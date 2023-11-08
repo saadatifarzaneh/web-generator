@@ -60,7 +60,7 @@ export function startServer() {
                 { template: 'image' },
                 {
                     template: 'half', data: [
-                        [ { template: 'image' , data: ['0', '1000']} ],
+                        [ { template: 'recaptcha', data: res.recaptcha } ],
                         [ { template: randomForm() } ]
                     ]
                 },
@@ -72,12 +72,10 @@ export function startServer() {
                 {
                     template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
                 },
+                { template: 'recaptcha', data: res.recaptcha },
                 { template: 'image' }
             ]
         ]
-
-
-
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
