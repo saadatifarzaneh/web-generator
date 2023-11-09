@@ -26,6 +26,7 @@ button-login\
 button-submit\
 button-search\
 button-download\
+button-signup\
 checkbox\
 recaptcha\
 video

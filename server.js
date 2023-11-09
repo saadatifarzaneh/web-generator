@@ -27,7 +27,7 @@ const formsFilenames = getFormsFilenames(formsDir);
 
 function randomForm() {
     return `forms/${selectFrom(formsFilenames)}`;
-    // return `forms/form4`;
+    // return `forms/form-simple1`;
 }
 
 export function startServer() {
