@@ -12,6 +12,12 @@
               <label for="inputPassword" class="save" data-type="password-label">Password</label>
               <input type="password" class="form-control save" data-type="password-input" id="inputPassword" placeholder="Password">
             </div>
+            @if (Math.random() > 0.5) {
+            <div class="form-group">
+                @html.raw(model)
+            </div>
+            } 
+
             <button type="submit" class="btn btn-primary save" data-type="button-submit">Sign in</button>
           </form>
         </div>

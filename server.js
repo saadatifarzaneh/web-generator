@@ -44,16 +44,15 @@ export function startServer() {
                 { template: 'image', data: ['200', '100'] },
                 {
                     template: 'sidebar', data: ['menu', [
-                        { template: randomForm() },
+                        { template: randomForm(), data: res.recaptcha },
                         {
                             template: 'half', data: [
                                 [{ template: 'video', data: ['0', '1000'] }],
-                                [{ template: randomForm() }]
+                                [{ template: randomForm(), data: res.recaptcha }]
                             ]
                         }
                     ]]
                 },
-                { template: 'recaptcha', data: res.recaptcha },
             ],
 
             //1
@@ -62,7 +61,7 @@ export function startServer() {
                 { template: 'image', data: ['100', '20'] },
                 {
                     template: 'sidebar', data: ['menu', [
-                        { template: randomForm() },
+                        { template: randomForm(), data: res.recaptcha },
                         {
                             template: 'half', data: [
                                 [{ template: 'image', data: ['1000', '0'] }],
@@ -79,17 +78,18 @@ export function startServer() {
                 { template: 'logo-menu', data: ['125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
-                        [{ template: 'recaptcha', data: res.recaptcha }],
+                        [{ template: 'video' }],
                         [{ template: 'video' }]
                     ]
                 },
+                { template: 'image' },
             ],
 
             //3
             [
                 { template: 'logo-image', data: ['125'] },
                 { template: 'menu' },
-                { template: randomForm() },
+                { template: randomForm(), data: res.recaptcha },
                 { template: 'image' }
             ],
 

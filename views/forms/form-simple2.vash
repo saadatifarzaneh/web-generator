@@ -58,7 +58,13 @@
                 <label>Agree to terms and conditions</label>
             </td>
         </tr>     
-
+        @if (Math.random() > 0.5) {
+        <tr>
+            <td colspan="2" style="text-align:center">
+                @html.raw(model)
+            </td>
+        </tr>
+        }
         <tr>
             <td>
                 <input type="submit" class="save" value="Sign In" data-type="button-login" />

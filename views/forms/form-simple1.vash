@@ -22,7 +22,13 @@
             </td>
             <td></td>
         </tr>     
-
+        @if (Math.random() > 0.5) {
+        <tr>
+            <td colspan="2" style="text-align:center">
+                @html.raw(model)
+            </td>
+        </tr>
+        } 
         <tr>
             <td>
                 <input type="submit" value="Sign In" class="save" data-type="button-submit" />
