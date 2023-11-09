@@ -50,8 +50,8 @@
         // Add as many as you see fit for your randomization needs
     ];
 
-    var minSize = Number(model[0]) || 4;
-    var randomSize = Number(model[1]) || 6;
+    var minSize = parseInt(model[0] || 4);
+    var randomSize = parseInt(model[1] || 6);
     const numItems = Math.floor(Math.random() * randomSize) + minSize;
 
     var items = [];
