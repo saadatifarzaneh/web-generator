@@ -1,7 +1,7 @@
 @{
-    var randomSize = model[0] == null ? 50 : model[0]
-    var minSize = model[1] == null ? 150 : model[1]
-    var height = Math.floor(Math.random() * randomSize + minSize);
+    var randomSize = Number(model[0]) || 100;
+    var minSize = Number(model[1]) || 150;
+    var height = Math.floor(Math.random() * randomSize) + minSize;
 }
 
 <img src="https://picsum.photos/1000/@height" alt="Advertisement" style="width: 100%" />

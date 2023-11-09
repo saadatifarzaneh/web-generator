@@ -26,8 +26,8 @@ const formsDir = './views/forms/';
 const formsFilenames = getFormsFilenames(formsDir);
 
 function randomForm() {
-    return `forms/${selectFrom(formsFilenames)}`;
     // return `forms/form-simple1`;
+    return `forms/${selectFrom(formsFilenames)}`;
 }
 
 export function startServer() {
@@ -66,7 +66,7 @@ export function startServer() {
                         {
                             template: 'half', data: [
                                 [{ template: 'image', data: ['0', '1000'] }],
-                                [{ template: randomForm() }]
+                                [{ template: 'image', data: ['0', '1000'] }]
                             ]
                         }
                     ]]
@@ -98,7 +98,7 @@ export function startServer() {
             [
                 {
                     template: 'sidebar', data: ['menu', [
-                        { template: 'video' },
+                        { template: 'image' },
                         {
                             template: 'half', data: [
                                 [{ template: 'image', data: ['0', '1000'] }],
@@ -112,7 +112,7 @@ export function startServer() {
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
-            // content: templates[3]
+            // content: templates[1]
             content: selectFrom(templates)
         });
     });
