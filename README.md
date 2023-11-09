@@ -29,7 +29,8 @@ button-download\
 button-signup\
 checkbox\
 recaptcha\
-video
+video\
+logo
 
 
 ## important files

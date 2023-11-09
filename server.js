@@ -40,8 +40,8 @@ export function startServer() {
         const templates = [
             //0
             [
-                { template: 'menu' },
-                { template: 'image', data: ['100', '200'] },
+                { template: 'logo-image', data: ['125'] },
+                { template: 'image', data: ['200', '100'] },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: randomForm() },
@@ -59,14 +59,14 @@ export function startServer() {
             //1
             [
                 { template: 'menu' },
-                { template: 'image', data: ['20', '100'] },
+                { template: 'image', data: ['100', '20'] },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: randomForm() },
                         {
                             template: 'half', data: [
-                                [{ template: 'image', data: ['0', '1000'] }],
-                                [{ template: 'image', data: ['0', '1000'] }]
+                                [{ template: 'image', data: ['1000', '0'] }],
+                                [{ template: 'image', data: ['1000', '0'] }]
                             ]
                         }
                     ]]
@@ -76,7 +76,7 @@ export function startServer() {
             
             //2
             [
-                { template: 'image' },
+                { template: 'logo-menu', data: ['125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
                         [{ template: 'recaptcha', data: res.recaptcha }],
@@ -87,10 +87,9 @@ export function startServer() {
 
             //3
             [
-                { template: 'image' },
-                {
-                    template: 'sidebar', data: ['menu', [{ template: randomForm() }]]
-                },
+                { template: 'logo-image', data: ['125'] },
+                { template: 'menu' },
+                { template: randomForm() },
                 { template: 'image' }
             ],
 
@@ -101,7 +100,7 @@ export function startServer() {
                         { template: 'image' },
                         {
                             template: 'half', data: [
-                                [{ template: 'image', data: ['0', '1000'] }],
+                                [{ template: 'image', data: ['1000', '0'] }],
                                 [{ template: 'recaptcha', data: res.recaptcha }]
                             ]
                         }
@@ -112,7 +111,7 @@ export function startServer() {
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
-            // content: templates[1]
+            // content: templates[3]
             content: selectFrom(templates)
         });
     });

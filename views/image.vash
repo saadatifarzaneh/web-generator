@@ -1,6 +1,6 @@
 @{
-    var randomSize = Number(model[0]) || 100;
-    var minSize = Number(model[1]) || 150;
+    var minSize = Number(model[0]) || 150;
+    var randomSize = Number(model[1]) || 100;
     var height = Math.floor(Math.random() * randomSize) + minSize;
 }
 

@@ -1,0 +1,13 @@
+@{
+    var height = Number(model[0])
+}
+<table width="100%" height="@height">
+<tr>
+    <td width="@height" style="background-color: white; text-align: center;">
+        <img src="https://picsum.photos/150" class="save" data-type="logo" alt="Random Logo" style="width: @height; height: @height; border-radius: 75%; background-color: white;" />
+    </td>
+    <td>
+        <img src="https://picsum.photos/2000/@height" alt="Advertisement" style="height: @height width: 100%" />
+    </td>
+</tr>
+</table>
