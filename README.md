@@ -32,7 +32,7 @@ video
 
 
 ## important files
-server.js
+server.js\
 views/forms/*
 
 
