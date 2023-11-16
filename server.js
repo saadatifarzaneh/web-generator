@@ -40,6 +40,7 @@ export function startServer() {
         const templates = [
             //0
             [
+                { template: 'popup' , data:['25']},
                 { template: 'logo-image', data: ['125'] },
                 { template: 'image', data: ['200', '100'] },
                 {
@@ -75,6 +76,7 @@ export function startServer() {
             
             //2
             [
+                { template: 'popup' , data:['50']},
                 { template: 'logo-menu', data: ['125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
@@ -87,6 +89,7 @@ export function startServer() {
 
             //3
             [
+                { template: 'popup' , data:['50']},
                 { template: 'logo-image', data: ['125'] },
                 { template: 'menu' },
                 { template: randomForm(), data: res.recaptcha },
