@@ -35,7 +35,8 @@ button-signup\
 checkbox\
 recaptcha\
 video\
-logo
+logo\
+popup
 
 ## important files
 
