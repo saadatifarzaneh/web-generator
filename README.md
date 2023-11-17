@@ -15,7 +15,7 @@ This program tries to
 
 Note: Please copy your png logos in `static/logo/*`, and uncomment the line below in `views/logo-image.vash` and `views/logo-menu.vash`
 
-`//logo_src = "https://picsum.photos/150";`
+`// logo_src = "https://picsum.photos/150";`
 
 ## supported labels (so far)
 
