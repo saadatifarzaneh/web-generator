@@ -1,8 +1,8 @@
 @{
     var height = parseInt(model[0] || 150)
-    var number = Math.floor(Math.random() * 2500) + 1;
-    logo_src = "https://iasbs.ac.ir/~ansari/Web/logo2/" + number + ".png";
-    // logo_src = https://picsum.photos/150";
+    var number = Math.floor(Math.random() * 3345);
+    var logo_src = "logo/" + number + ".png";
+    logo_src = "https://picsum.photos/150";
 }
 <table width="100%" height="@height">
 <tr>
