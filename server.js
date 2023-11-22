@@ -30,6 +30,26 @@ function randomForm() {
     return `forms/${selectFrom(formsFilenames)}`;
 }
 
+
+const getLogosFilenames = (logosDir) => {
+    try {  
+        const files = readdirSync(logosDir);
+        return files
+            .filter(file => file.endsWith('.png'));
+    } catch (err) {
+        console.error('Error reading captcha directory:', err);
+        return [];
+    }
+};
+
+const logosDir = './static/logos/';
+const logosFilenames = getLogosFilenames(logosDir);
+
+function randomLogo() {
+    return `logos/${selectFrom(logosFilenames)}`;
+}
+
+
 export function startServer() {
     const app = express()
     app.use(express.static('static'));
@@ -41,7 +61,7 @@ export function startServer() {
             //0
             [
                 { template: 'popup' , data:['25']},
-                { template: 'logo-image', data: ['125'] },
+                { template: 'logo-image', data: [randomLogo(), '125'] },
                 { template: 'image', data: ['200', '100'] },
                 {
                     template: 'sidebar', data: ['menu', [
@@ -77,7 +97,7 @@ export function startServer() {
             //2
             [
                 { template: 'popup' , data:['50']},
-                { template: 'logo-menu', data: ['125', { template: 'menu', data: ['4', '3']}] },
+                { template: 'logo-menu', data: [randomLogo(), '125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
                         [{ template: 'video' }],
@@ -90,7 +110,7 @@ export function startServer() {
             //3
             [
                 { template: 'popup' , data:['50']},
-                { template: 'logo-image', data: ['125'] },
+                { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },
                 { template: randomForm(), data: res.recaptcha },
                 { template: 'image' }
@@ -114,7 +134,7 @@ export function startServer() {
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
-            // content: templates[3]
+            // content: templates[2],
             content: selectFrom(templates)
         });
     });

@@ -1,13 +1,12 @@
 @{
-    var height = parseInt(model[0] || 150)
-    var number = Math.floor(Math.random() * 3345);
-    var logo_src = "logo/" + number + ".png";
-    logo_src = "https://picsum.photos/150";
+    var height = parseInt(model[1] || 125)
+    var radius = Math.random() > .5 ? 50 : 0;
+    // logo_src = "https://picsum.photos/" + height;
 }
 <table width="100%" height="@height">
 <tr>
-    <td width="@height" style="background-color: white; text-align: center;">
-        <img src="@logo_src" class="save" data-type="logo" alt="Random Logo" style="width: @height; height: @height; border-radius: 50%; background-color: white;" />
+    <td width="@height" height="@height" style="background-color: white; text-align: center;">
+        <img src="@model[0]" class="save" data-type="logo" alt="Random Logo" style="width: @height; height: @height; border-radius: @radius%; background-color: white;" />
     </td>
     <td>
         <img src="https://picsum.photos/2000/@height" alt="Advertisement" style="height: @height width: 100%" />
