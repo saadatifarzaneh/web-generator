@@ -109,6 +109,7 @@ export function startServer() {
 
             //3
             [
+                { template: 'alert' , data:['400']},
                 { template: 'popup' , data:['50']},
                 { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },
@@ -118,6 +119,7 @@ export function startServer() {
 
             //4
             [
+                { template: 'alert' , data:[Math.floor(Math.random() * 1000)]},
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: 'image' },
@@ -134,7 +136,7 @@ export function startServer() {
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
-            // content: templates[2],
+            // content: templates[4],
             content: selectFrom(templates)
         });
     });

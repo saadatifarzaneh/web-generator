@@ -1,0 +1,41 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var messages = [
+        "Your location is at risk! Enhance your security now.",
+        "Warning: Suspicious activity detected in your area.",
+        "Alert: Potential security threats found. Click to scan."
+    ];
+
+    var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+    // Create the alert element
+    var alertDiv = document.createElement('div');
+    alertDiv.className = "alert alert-warning alert-dismissible fade show save";
+    alertDiv.setAttribute("data-type", "alert");
+    alertDiv.role = 'alert';
+    alertDiv.innerHTML = `
+        ${randomMessage}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    `;
+
+    // Append the alert element to the body
+    document.body.appendChild(alertDiv);
+
+    // Function to randomly position the alert
+    function positionAlert() {
+        var maxX = window.innerWidth - alertDiv.offsetWidth;
+        var maxY = window.innerHeight - alertDiv.offsetHeight;
+        var randomX = Math.floor(Math.random() * maxX);
+        var randomY = Math.floor(Math.random() * maxY);
+
+        alertDiv.style.position = 'absolute';
+        alertDiv.style.left = @model[0] + 'px';
+        alertDiv.style.top = randomY + 'px';
+    }
+
+    // Position the alert after it has been added to the DOM
+    setTimeout(positionAlert, 0);
+});
+</script>
