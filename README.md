@@ -38,7 +38,8 @@ checkbox\
 recaptcha\
 video\
 logo\
-popup
+popup\
+alert
 
 ## important files
 
