@@ -3,35 +3,41 @@ document.addEventListener('DOMContentLoaded', function() {
     var messages = [
         "Your location is at risk! Enhance your security now.",
         "Warning: Suspicious activity detected in your area.",
-        "Alert: Potential security threats found. Click to scan."
+        "Alert: Potential security threats found. Click to scan.",
+        "Important: Update your software to the latest version.",
+        "Notice: Unusual login attempt detected. Verify it's you.",
+        "Security Tip: Use strong passwords to protect your accounts.",
+    ];
+
+    var colors = [
+        "red", "green", "blue", "orange", "purple", // Named colors
+        "#FF5733", "#C70039", "#900C3F", "#581845", "#DAF7A6" // Hexadecimal colors
     ];
 
     var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-    // Create the alert element
     var alertDiv = document.createElement('div');
+
     alertDiv.className = "alert alert-warning alert-dismissible fade show save";
     alertDiv.setAttribute("data-type", "alert");
     alertDiv.role = 'alert';
-    alertDiv.innerHTML = `
-        ${randomMessage}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    `;
+
+    @html.include(model[0])
 
     // Append the alert element to the body
     document.body.appendChild(alertDiv);
 
     // Function to randomly position the alert
     function positionAlert() {
+        alertDiv.style.position = 'absolute';
+
         var maxX = window.innerWidth - alertDiv.offsetWidth;
         var maxY = window.innerHeight - alertDiv.offsetHeight;
         var randomX = Math.floor(Math.random() * maxX);
         var randomY = Math.floor(Math.random() * maxY);
 
-        alertDiv.style.position = 'absolute';
-        alertDiv.style.left = @model[0] + 'px';
+        alertDiv.style.left = randomX + 'px';
         alertDiv.style.top = randomY + 'px';
     }
 

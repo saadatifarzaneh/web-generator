@@ -30,6 +30,13 @@ function randomForm() {
     return `forms/${selectFrom(formsFilenames)}`;
 }
 
+const alertsDir = './views/alerts/';
+const alertsFilenames = getFormsFilenames(alertsDir);
+
+function randomAlert() {
+    return `alerts/${selectFrom(alertsFilenames)}`;
+}
+
 
 const getLogosFilenames = (logosDir) => {
     try {  
@@ -109,7 +116,7 @@ export function startServer() {
 
             //3
             [
-                { template: 'alert' , data:['400']},
+                { template: 'alert', data: [randomAlert()] },
                 { template: 'popup' , data:['50']},
                 { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },
@@ -119,7 +126,10 @@ export function startServer() {
 
             //4
             [
-                { template: 'alert' , data:[Math.floor(Math.random() * 1000)]},
+                {
+                    template: 'alert',
+                    data: [randomAlert()],
+                },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: 'image' },
@@ -136,8 +146,8 @@ export function startServer() {
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
+            content: selectFrom(templates),
             // content: templates[4],
-            content: selectFrom(templates)
         });
     });
 
