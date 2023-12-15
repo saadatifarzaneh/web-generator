@@ -1,9 +1,13 @@
-    alertDiv.style.width = Math.floor(Math.random() * 200 + 250) + 'px'
-    alertDiv.style.height = Math.floor(Math.random() * 300 + 400) + 'px'
+    alertDiv.style.width = Math.floor(Math.random() * 200 + 200) + 'px'
+    alertDiv.style.height = window.innerHeight + 'px'
     
     alertDiv.style.color = 'white';
 
     alertDiv.style.backgroundColor = 'black';
+
+    if(Math.random() > 0.75){
+        alertDiv.style.backgroundImage = "url(https://picsum.photos/800/400)";
+    }
 
     alertDiv.innerHTML = `
         ${randomMessage}

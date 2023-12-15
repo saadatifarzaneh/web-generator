@@ -1,21 +1,20 @@
-    alertDiv.style.width = Math.floor(Math.random() * 300 + 900) + 'px'
-    alertDiv.style.height = Math.floor(Math.random() * 200 + 300) + 'px'
+    alertDiv.style.width = window.innerWidth + 'px'
+    alertDiv.style.height = 250 + 'px'
     
     alertDiv.style.color = 'white';
 
-    alertDiv.style.backgroundColor = randomColor;
-
-    if(Math.random() > 0.5){
+    alertDiv.style.backgroundColor = 'black';
+ 
+    if(Math.random() > 0.75){
         alertDiv.style.backgroundImage = "url(https://picsum.photos/800/400)";
     }
-
+ 
     alertDiv.innerHTML = `
         ${randomMessage}
         <h1>&nbsp;</h1>
         <div style="padding-top: 10px;">
             <button type="button" class="btn btn-primary btn-block">Accept</button>
             <button type="button" class="btn btn-secondary btn-block">View Cookie Settings</button>
-            <button type="button" class="btn btn-secondary btn-block">Register</button>
         </div>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -31,6 +30,6 @@
         var randomX = Math.floor(Math.random() * maxX);
         var randomY = Math.floor(Math.random() * maxY);
 
-        alertDiv.style.left = randomX + 'px';
-        alertDiv.style.top = randomY + 'px';
+        alertDiv.style.left = 0 + 'px';
+        alertDiv.style.top = maxY + 'px';
     }
