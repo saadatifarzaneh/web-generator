@@ -34,6 +34,7 @@ const alertsDir = './views/alerts/';
 const alertsFilenames = getFormsFilenames(alertsDir);
 
 function randomAlert() {
+    // return `alerts/alert_bottom`;
     return `alerts/${selectFrom(alertsFilenames)}`;
 }
 
