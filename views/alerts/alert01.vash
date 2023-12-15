@@ -20,3 +20,16 @@
             <span aria-hidden="true">&times;</span>
         </button>  
     `;
+
+    // Function to randomly position the alert
+    function positionAlert() {
+        alertDiv.style.position = 'absolute';
+
+        var maxX = window.innerWidth - alertDiv.offsetWidth;
+        var maxY = window.innerHeight - alertDiv.offsetHeight;
+        var randomX = Math.floor(Math.random() * maxX);
+        var randomY = Math.floor(Math.random() * maxY);
+
+        alertDiv.style.left = randomX + 'px';
+        alertDiv.style.top = randomY + 'px';
+    }
