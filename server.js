@@ -17,7 +17,7 @@ const getFormsFilenames = (formsDir) => {
             .filter(file => file.endsWith('.vash'))
             .map(file => basename(file, '.vash'));
     } catch (err) {
-        console.error('Error reading captcha directory:', err);
+        console.error('Error reading forms directory:', err);
         return [];
     }
 };
@@ -45,7 +45,7 @@ const getLogosFilenames = (logosDir) => {
         return files
             .filter(file => file.endsWith('.png'));
     } catch (err) {
-        console.error('Error reading captcha directory:', err);
+        console.error('Error reading logos directory:', err);
         return [];
     }
 };
