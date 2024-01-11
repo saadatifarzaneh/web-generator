@@ -22,9 +22,20 @@ const getFormsFilenames = (formsDir) => {
     }
 };
 
+const getPhotosFilenames = (PhotosDir) => {
+    try {  
+        const files = readdirSync(PhotosDir);
+        return files
+            .filter(file => file.endsWith('.jpg') || file.endsWith('.png'));
+    } catch (err) {
+        console.error('Error reading photos directory:', err);
+        return [];
+    }
+};
+
+
 const formsDir = './views/forms/';
 const formsFilenames = getFormsFilenames(formsDir);
-
 function randomForm() {
     // return `forms/form-simple1`;
     return `forms/${selectFrom(formsFilenames)}`;
@@ -32,7 +43,6 @@ function randomForm() {
 
 const alertsDir = './views/alerts/';
 const alertsFilenames = getFormsFilenames(alertsDir);
-
 function randomAlert() {
     // return `alerts/alert_bottom`;
     return `alerts/${selectFrom(alertsFilenames)}`;
@@ -40,45 +50,19 @@ function randomAlert() {
 
 const alertsByPhotosDir = './views/alerts_by_photos/';
 const alertsByPhotosFilenames = getFormsFilenames(alertsByPhotosDir);
-
 function randomAlertByPhotos() {
     // return `alerts_by_photos/alert_3photos_top_right`;
     return `alerts_by_photos/${selectFrom(alertsByPhotosFilenames)}`;
 }
 
-const getLogosFilenames = (logosDir) => {
-    try {  
-        const files = readdirSync(logosDir);
-        return files
-            .filter(file => file.endsWith('.png'));
-    } catch (err) {
-        console.error('Error reading logos directory:', err);
-        return [];
-    }
-};
-
 const logosDir = './static/logos/';
-const logosFilenames = getLogosFilenames(logosDir);
-
+const logosFilenames = getPhotosFilenames(logosDir);
 function randomLogo() {
     return `logos/${selectFrom(logosFilenames)}`;
 }
 
-
-const getAlertPhotosFilenames = (alertPhotosDir) => {
-    try {  
-        const files = readdirSync(alertPhotosDir);
-        return files
-            .filter(file => file.endsWith('.jpg'));
-    } catch (err) {
-        console.error('Error reading alert photos directory:', err);
-        return [];
-    }
-};
-
 const alertPhotosDir = './static/alert_photos/';
-const alertPhotosFilenames = getAlertPhotosFilenames(alertPhotosDir);
-
+const alertPhotosFilenames = getPhotosFilenames(alertPhotosDir);
 function randomAlertPhoto() {
     return `alert_photos/${selectFrom(alertPhotosFilenames)}`;
 }
