@@ -58,6 +58,25 @@ function randomLogo() {
 }
 
 
+const getAlertPhotosFilenames = (alertPhotosDir) => {
+    try {  
+        const files = readdirSync(alertPhotosDir);
+        return files
+            .filter(file => file.endsWith('.jpg'));
+    } catch (err) {
+        console.error('Error reading alert photos directory:', err);
+        return [];
+    }
+};
+
+const alertPhotosDir = './static/alert_photos/';
+const alertPhotosFilenames = getAlertPhotosFilenames(alertPhotosDir);
+
+function randomAlertPhoto() {
+    return `alert_photos/${selectFrom(alertPhotosFilenames)}`;
+}
+
+
 export function startServer() {
     const app = express()
     app.use(express.static('static'));
@@ -148,7 +167,7 @@ export function startServer() {
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
             content: selectFrom(templates),
-            // content: templates[4],
+            // content: templates[3],
         });
     });
 
