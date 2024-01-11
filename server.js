@@ -38,6 +38,13 @@ function randomAlert() {
     return `alerts/${selectFrom(alertsFilenames)}`;
 }
 
+const alertsByPhotosDir = './views/alerts_by_photos/';
+const alertsByPhotosFilenames = getFormsFilenames(alertsByPhotosDir);
+
+function randomAlertByPhotos() {
+    // return `alerts_by_photos/alert_3photos_top_right`;
+    return `alerts_by_photos/${selectFrom(alertsByPhotosFilenames)}`;
+}
 
 const getLogosFilenames = (logosDir) => {
     try {  
@@ -105,6 +112,10 @@ export function startServer() {
 
             //1
             [
+                {
+                    template: randomAlertByPhotos(),
+                    data: [randomAlertPhoto(), randomAlertPhoto(), randomAlertPhoto()]
+                },
                 { template: 'menu' },
                 { template: 'image', data: ['100', '20'] },
                 {
@@ -136,7 +147,10 @@ export function startServer() {
 
             //3
             [
-                { template: 'alert', data: [randomAlert()] },
+                {
+                    template: randomAlertByPhotos(),
+                    data: [randomAlertPhoto(), randomAlertPhoto(), randomAlertPhoto()]
+                },
                 { template: 'popup' , data:['50']},
                 { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },

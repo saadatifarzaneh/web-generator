@@ -1,0 +1,20 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function getRandomBorderColor() {
+        var colors = ['red', 'green', 'blue', 'black', ''];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    var img1 = document.createElement('img');
+    img1.src = "@model[0]";
+    img1.style.position = 'absolute';
+    img1.style.bottom = '0';
+    img1.style.right = '0';
+    img1.style.border = '1px solid ' + getRandomBorderColor();
+
+    img1.className = "save";
+    img1.setAttribute("data-type", "alert");
+
+    document.body.appendChild(img1);
+});
+</script>

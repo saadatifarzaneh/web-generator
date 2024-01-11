@@ -1,0 +1,49 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function getRandomBorderColor() {
+        var colors = ['red', 'green', 'blue', 'black', ''];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    var borderColor = getRandomBorderColor();
+
+    var img1 = document.createElement('img');
+    img1.src = "@model[0]";
+    img1.style.position = 'absolute';
+    img1.style.top = '0';
+    img1.style.right = '0';
+    img1.style.border = '1px solid ' + borderColor;
+    img1.onload = function() {
+        img2.style.top = img1.offsetHeight + 'px';
+    };
+
+    var img2 = document.createElement('img');
+    img2.src = "@model[1]";
+    img2.style.position = 'absolute';
+    img2.style.right = '0';
+    img2.style.border = '1px solid ' + borderColor;
+    img2.onload = function() {
+        img3.style.top = img1.offsetHeight + img2.offsetHeight + 'px';
+    };
+
+    var img3 = document.createElement('img');
+    img3.src = "@model[2]";
+    img3.style.position = 'absolute';
+    img3.style.right = '0';
+    img3.style.border = '1px solid ' + borderColor;
+
+
+    img1.className = "save";
+    img1.setAttribute("data-type", "alert");
+
+    img2.className = "save";
+    img2.setAttribute("data-type", "alert");
+
+    img3.className = "save";
+    img3.setAttribute("data-type", "alert");
+
+    document.body.appendChild(img1);
+    document.body.appendChild(img2);
+    document.body.appendChild(img3);
+});
+</script>
