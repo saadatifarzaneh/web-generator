@@ -10,18 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
     img1.style.position = 'absolute';
-    img1.style.top = '0';
-    img1.style.right = '0';
+    img1.style.top = '10px'; // Offset from top for the first image
+    img1.style.right = '10px';
     img1.style.border = '1px solid ' + borderColor;
-    img1.onload = function() {
-        img2.style.top = img1.offsetHeight + 'px';
-    };
 
     var img2 = document.createElement('img');
     img2.src = "@model[1]";
     img2.style.position = 'absolute';
-    img2.style.right = '0';
+    img2.style.right = '10px';
     img2.style.border = '1px solid ' + borderColor;
+
+    img1.onload = function() {
+        // Calculate the top position for img2
+        var img1Bottom = img1.offsetTop + img1.offsetHeight + 1; // +1 for the border width
+        img2.style.top = img1Bottom + 'px';
+    };
 
     img1.className = "save";
     img1.setAttribute("data-type", "alert");

@@ -51,7 +51,7 @@ function randomAlert() {
 const alertsByPhotosDir = './views/alerts_by_photos/';
 const alertsByPhotosFilenames = getFormsFilenames(alertsByPhotosDir);
 function randomAlertByPhotos() {
-    // return `alerts_by_photos/alert_3photos_top_right`;
+    // return `alerts_by_photos/alert_3photos_bottom_right`;
     return `alerts_by_photos/${selectFrom(alertsByPhotosFilenames)}`;
 }
 

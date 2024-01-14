@@ -10,18 +10,30 @@ document.addEventListener('DOMContentLoaded', function() {
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
     img1.style.position = 'absolute';
-    img1.style.bottom = '0';
-    img1.style.right = '0';
+    img1.style.bottom = '10px'; // Ensure 'px' is included for CSS units
+    img1.style.right = '10px';
     img1.style.border = '1px solid ' + borderColor;
-    img1.onload = function() {
-        img2.style.bottom = img1.offsetHeight + 'px';
-    };
 
     var img2 = document.createElement('img');
     img2.src = "@model[1]";
     img2.style.position = 'absolute';
-    img2.style.right = '0';
+    img2.style.right = '10px';
     img2.style.border = '1px solid ' + borderColor;
+
+    img1.onload = function() {
+        // Ensure img2 dimensions are available for calculation
+        img2.onload = function() {
+            // Calculate the top position for img2
+            var img1Top = window.innerHeight - img1.getBoundingClientRect().bottom;
+            img2.style.bottom = (img1Top + img1.offsetHeight) + 'px';
+        };
+
+        if (!img2.complete) {
+            img2.src = img2.src; // Trigger img2 load if not already started
+        } else {
+            img2.onload();
+        }
+    };
 
     img1.className = "save";
     img1.setAttribute("data-type", "alert");

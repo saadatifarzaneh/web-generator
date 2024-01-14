@@ -10,28 +10,39 @@ document.addEventListener('DOMContentLoaded', function() {
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
     img1.style.position = 'absolute';
-    img1.style.top = '0';
-    img1.style.right = '0';
+    img1.style.top = '10px';
+    img1.style.right = '10px';
     img1.style.border = '1px solid ' + borderColor;
-    img1.onload = function() {
-        img2.style.top = img1.offsetHeight + 'px';
-    };
 
     var img2 = document.createElement('img');
     img2.src = "@model[1]";
     img2.style.position = 'absolute';
-    img2.style.right = '0';
+    img2.style.right = '10px';
     img2.style.border = '1px solid ' + borderColor;
-    img2.onload = function() {
-        img3.style.top = img1.offsetHeight + img2.offsetHeight + 'px';
-    };
 
     var img3 = document.createElement('img');
     img3.src = "@model[2]";
     img3.style.position = 'absolute';
-    img3.style.right = '0';
+    img3.style.right = '10px';
     img3.style.border = '1px solid ' + borderColor;
 
+    img1.onload = function() {
+        // Position img2 right below img1
+        img2.style.top = (img1.offsetTop + img1.offsetHeight) + 'px';
+
+        img2.onload = function() {
+            // Position img3 right below img2
+            img3.style.top = (img2.offsetTop + img2.offsetHeight) + 'px';
+        };
+
+        // Trigger img2 load if not already started
+        if (!img2.complete) {
+            img2.src = img2.src;
+        } else {
+            // Call onload manually if img2 is already loaded
+            img2.onload();
+        }
+    };
 
     img1.className = "save";
     img1.setAttribute("data-type", "alert");
