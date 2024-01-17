@@ -6,53 +6,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var borderColor = getRandomBorderColor();
+    var imagesDistance = 2;
+    var firstImageAlign = 10;
 
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
     img1.style.position = 'absolute';
-    img1.style.bottom = '10px';
-    img1.style.right = '10px';
-    img1.style.border = '1px solid ' + borderColor;
+    img1.style.bottom = firstImageAlign + 'px';
+    img1.style.right = firstImageAlign + 'px';
+    // img1.style.border = '1px solid ' + borderColor;
 
     var img2 = document.createElement('img');
+    img1.onload = function() {
+        var img2Bottom = img1.offsetHeight + firstImageAlign + imagesDistance;
+        img2.style.bottom = img2Bottom + 'px';
+    };
     img2.src = "@model[1]";
     img2.style.position = 'absolute';
-    img2.style.right = '10px';
-    img2.style.border = '1px solid ' + borderColor;
+    img2.style.right = firstImageAlign + 'px';
+    // img2.style.border = '1px solid ' + borderColor;
 
     var img3 = document.createElement('img');
+    img2.onload = function() {
+        var img3Bottom = img1.offsetHeight + img2.offsetHeight + firstImageAlign + imagesDistance + imagesDistance;
+        img3.style.bottom = img3Bottom + 'px';
+    };
     img3.src = "@model[2]";
     img3.style.position = 'absolute';
-    img3.style.right = '10px';
-    img3.style.border = '1px solid ' + borderColor;
+    img3.style.right = firstImageAlign + 'px';
+    // img3.style.border = '1px solid ' + borderColor;
 
-    img1.onload = function() {
-        img2.onload = function() {
-            // Calculate the top position for img2
-            var img1Top = window.innerHeight - img1.getBoundingClientRect().bottom;
-            img2.style.bottom = (img1Top + img1.offsetHeight) + 'px';
-
-            img3.onload = function() {
-                // Calculate the top position for img3
-                var img2Top = window.innerHeight - img2.getBoundingClientRect().bottom;
-                img3.style.bottom = (img2Top + img2.offsetHeight) + 'px';
-            };
-
-            // Trigger img3 load if not already started
-            if (!img3.complete) {
-                img3.src = img3.src;
-            } else {
-                img3.onload();
-            }
-        };
-
-        // Trigger img2 load if not already started
-        if (!img2.complete) {
-            img2.src = img2.src;
-        } else {
-            img2.onload();
-        }
-    };
     img1.className = "save";
     img1.setAttribute("data-type", "alert");
 

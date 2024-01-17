@@ -6,24 +6,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var borderColor = getRandomBorderColor();
+    var imagesDistance = 2;
+    var firstImageAlign = 10;
+
 
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
     img1.style.position = 'absolute';
-    img1.style.top = '10px'; // Offset from top for the first image
-    img1.style.right = '10px';
-    img1.style.border = '1px solid ' + borderColor;
+    img1.style.top = firstImageAlign + 'px'; // Offset from top for the first image
+    img1.style.right = firstImageAlign + 'px';
+    // img1.style.border = '1px solid ' + borderColor;
 
     var img2 = document.createElement('img');
     img2.src = "@model[1]";
     img2.style.position = 'absolute';
-    img2.style.right = '10px';
-    img2.style.border = '1px solid ' + borderColor;
+    img2.style.right = firstImageAlign + 'px';
+    // img2.style.border = '1px solid ' + borderColor;
 
     img1.onload = function() {
-        // Calculate the top position for img2
-        var img1Bottom = img1.offsetTop + img1.offsetHeight + 1; // +1 for the border width
-        img2.style.top = img1Bottom + 'px';
+        var img2Top = img1.offsetHeight + firstImageAlign + imagesDistance;
+        img2.style.top = img2Top + 'px';
     };
 
     img1.className = "save";
