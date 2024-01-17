@@ -1,11 +1,11 @@
 
-# web-generator
+# synthetic web-generator
 
 This program tries to
 
 * Generates random webpages
 * Takes screenshots from each page
-* Saves some element info in JSON files
+* Saves some element info in JSON files (`TODO`: needs to be saved in separate files)
 
 ## requirements
 
@@ -13,7 +13,11 @@ This program tries to
 * run `npm install`
 * run the program `node main.js`
 
-Note: Please copy your png logos (with arbitrary names) in `static/logos/*`.
+### Notes
+
+* Copy your png/jpg logos (with arbitrary names) in `static/logos/*`.
+
+* Copy your png/jpg alert template photos (with arbitrary names) in `static/alert_photos/*`.
 
 ## supported labels (so far)
 
@@ -41,11 +45,23 @@ logo\
 popup\
 alert
 
-## important files
+## important project files/directories
 
-server.js\
-views/*
-views/forms/*
+`main.js`\
+`server.js`\
+`save-date.js`
+
+### vash files
+
+`views/*.vash`\
+`views/forms/*.vash`\
+`alerts/*.vash` (auto-generated alerts)\
+`alerts_by_photos/*.vash` (picture-based alerts; needs alert_photos)
+
+### photo files
+
+`alert_photos/*.[png|jpg]` (related to alerts_by_photos)\
+`logos/*.[png|jpg]`
 
 ## random images
 
