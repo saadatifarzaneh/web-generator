@@ -9,7 +9,7 @@
         <img src="@model[0]" class="save" data-type="logo" alt="Random Logo" style="width: @height; height: @height; border-radius: @radius%; background-color: white;" />
     </td>
     <td>
-        <img src="https://picsum.photos/2000/@height" alt="Advertisement" style="height: @height width: 100%" />
+        <img src="https://picsum.photos/1000/@height" alt="Advertisement" style="height: @height width: 100%" />
     </td>
 </tr>
 </table>
