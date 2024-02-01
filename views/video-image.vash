@@ -1,0 +1,3 @@
+<div class="save" data-type="video">
+  <img src="@model[0]" alt="Video" style="width: 100%"/>
+</div>

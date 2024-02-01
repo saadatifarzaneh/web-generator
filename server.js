@@ -67,6 +67,12 @@ function randomAlertPhoto() {
     return `alert_photos/${selectFrom(alertPhotosFilenames)}`;
 }
 
+const videosDir = './static/video_photos/';
+const videosFilenames = getPhotosFilenames(videosDir);
+function randomVideo() {
+    return `video_photos/${selectFrom(videosFilenames)}`;
+}
+
 
 export function startServer() {
     const app = express()
@@ -86,7 +92,7 @@ export function startServer() {
                         { template: randomForm(), data: res.recaptcha },
                         {
                             template: 'half', data: [
-                                [{ template: 'video', data: ['0', '1000'] }],
+                                [{ template: 'video-image', data: [randomVideo()] }],
                                 [{ template: randomForm(), data: res.recaptcha }]
                             ]
                         }
@@ -122,8 +128,8 @@ export function startServer() {
                 { template: 'logo-menu', data: [randomLogo(), '125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
-                        [{ template: 'video' }],
-                        [{ template: 'video' }]
+                        [{ template: 'video-image' , data:[randomVideo()]}],
+                        [{ template: 'video-image' , data:[randomVideo()]}]
                     ]
                 },
                 { template: 'image' },
@@ -165,7 +171,7 @@ export function startServer() {
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
             content: selectFrom(templates),
-            // content: templates[3],
+            // content: templates[2],
         });
     });
 
