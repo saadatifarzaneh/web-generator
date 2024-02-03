@@ -1,15 +1,15 @@
 @{
-    var height = parseInt(model[1] || 125)
-    var radius = Math.random() > .5 ? 50 : 0;
-    // logo_src = "https://picsum.photos/" + height;
+    var height = parseInt(model[1] || 150)
+    // 60% of times, rectangle
+    // 40% of times, rounded corners
+    var radius = Math.random() > 0.4 ? 50 : 0;
+    // 50% of times no paddings
+    // 50% of times, padding between 0-10
+    var padding = Math.random() > 0.5 ? 0 : (Math.floor(Math.random() * 11)) ;
 }
-<table width="100%" height="@height">
-<tr>
-    <td width="@height" height="@height" style="background-color: white; text-align: center;">
-        <img src="@model[0]" class="save" data-type="logo" alt="Random Logo" style="width: @height; height: @height; border-radius: @radius%; background-color: white;" />
-    </td>
-    <td>
-        <img src="https://picsum.photos/1000/@height" alt="Advertisement" style="height: @height width: 100%" />
-    </td>
-</tr>
-</table>
+
+<div style="background:url(https://picsum.photos/1920/150); background-size:cover">
+    <img src="@model[0]" class="save" data-type="logo" alt="Random Logo" style="border-radius: @radius%; max-height:@(height)px; padding:@(padding)px" />
+</div>
+
+
