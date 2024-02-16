@@ -48,6 +48,13 @@ function randomAlert() {
     return `alerts/${selectFrom(alertsFilenames)}`;
 }
 
+const popupsDir = './views/popups/';
+const popupsFilenames = getFormsFilenames(popupsDir);
+function randomPopup() {
+    // return `popups/popups_01`;
+    return `forms/${selectFrom(popupsFilenames)}`;
+}
+
 const alertsByPhotosDir = './views/alerts_by_photos/';
 const alertsByPhotosFilenames = getFormsFilenames(alertsByPhotosDir);
 function randomAlertByPhotos() {
@@ -84,7 +91,7 @@ export function startServer() {
         const templates = [
             //0
             [
-                { template: 'popup' , data:['25']},
+                { template: randomPopup() , data:['25']},
                 { template: 'logo-image', data: [randomLogo(), '125'] },
                 { template: 'image', data: ['200', '100'] },
                 {
@@ -124,7 +131,7 @@ export function startServer() {
             
             //2
             [
-                { template: 'popup' , data:['50']},
+                { template: randomPopup() , data:['50']},
                 { template: 'logo-menu', data: [randomLogo(), '125', { template: 'menu', data: ['4', '3']}] },
                 {
                     template: 'half', data: [
@@ -141,7 +148,7 @@ export function startServer() {
                     template: randomAlertByPhotos(),
                     data: [randomAlertPhoto(), randomAlertPhoto(), randomAlertPhoto()]
                 },
-                { template: 'popup' , data:['50']},
+                { template: randomPopup() , data:['50']},
                 { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },
                 { template: randomForm(), data: res.recaptcha },
