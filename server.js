@@ -52,7 +52,7 @@ const popupsDir = './views/popups/';
 const popupsFilenames = getFormsFilenames(popupsDir);
 function randomPopup() {
     // return `popups/popups_01`;
-    return `forms/${selectFrom(popupsFilenames)}`;
+    return `popups/${selectFrom(popupsFilenames)}`;
 }
 
 const alertsByPhotosDir = './views/alerts_by_photos/';
