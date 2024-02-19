@@ -1,0 +1,15 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var img1 = document.createElement('img');
+    img1.src = "@model[0]"; // Ensure this points to a valid image source
+    img1.style.width = '400px';
+    img1.style.position = 'fixed';
+    img1.style.top = '50%';
+    img1.style.left = '50%';
+    img1.style.transform = 'translate(-50%, -50%)';
+    img1.className = "save";
+    img1.setAttribute("data-type", "popup");
+
+    document.body.appendChild(img1);
+});
+</script>

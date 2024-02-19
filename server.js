@@ -74,6 +74,13 @@ function randomAlertPhoto() {
     return `alert_photos/${selectFrom(alertPhotosFilenames)}`;
 }
 
+const popupPhotosDir = './static/popup_photos/';
+const popupPhotosFilenames = getPhotosFilenames(popupPhotosDir);
+function randomPopupPhoto() {
+    return `popup_photos/${selectFrom(popupPhotosFilenames)}`;
+}
+
+
 const videosDir = './static/video_photos/';
 const videosFilenames = getPhotosFilenames(videosDir);
 function randomVideo() {
@@ -171,43 +178,24 @@ export function startServer() {
                         }
                     ]]
                 }
-            ]
+            ],
 
-            
-            // //5 - New Template
-            // [
-            //     { template: randomPopup(), data:['75'] },
-            //     { template: 'text-message', data: ['Congratulations! You won!'] },
-            //     { template: randomAlert(), data: [] },
-            //     { template: 'full-screen-image', data: [randomAlertPhoto()] }
-            // ]
-
-            // //6 - New Template
-            // [
-            //     { template: 'notification-bar', data: ['You have a new message!'] },
-            //     { template: randomPopup(), data:['20'] },
-            //     { template: 'simple-form', data: res.recaptcha },
-            //     { template: 'half', data: [
-            //         [{ template: 'logo-image', data: [randomLogo()] }],
-            //         [{ template: 'text-block', data: ['Thank you for your visit!'] }]
-            //     ]}
-            // ]
-
-            // //7 - New Template
-            // [
-            //     { template: 'menu', data: ['5', '2'] },
-            //     { template: 'half', data: [
-            //         [{ template: 'image-slide', data: [randomAlertPhoto(), randomAlertPhoto()] }],
-            //         [{ template: 'feedback-form', data: res.recaptcha }]
-            //     ]},
-            //     { template: randomAlertByPhotos(), data: [randomAlertPhoto(), randomAlertPhoto()] }
-            // ]
+            //5
+            [
+                // { template: 'popup_by_photo', data: [randomPopupPhoto()]},
+                { template: 'popup_by_photo_fade', data: [randomPopupPhoto()]},
+                { template: 'logo-image', data: [randomLogo(), '150'] },
+                { template: 'menu' },
+                { template: randomForm(), data: res.recaptcha },
+                { template: 'image' }
+            ],
+                    
         ]
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
             content: selectFrom(templates),
-            // content: templates[2],
+            // content: templates[5],
         });
     });
 
