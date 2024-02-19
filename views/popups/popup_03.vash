@@ -1,21 +1,24 @@
 @{
-    var height = Math.floor(Math.random() * 400) + 150;
+    var height = Math.floor(Math.random() * 20) + 150;
 }
 
-@if (Math.floor(Math.random() * 100 < parseInt(model[0] || 100))){
+@if (Math.floor(Math.random() * 100) < parseInt(model[0] || 100)){
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog save" data-type="popup" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <p class="modal-title" id="exampleModalLabel" style="color: black">
-          We use cookies to improve your experience. By continuing to use our site, you agree to our cookie policy.
-        </p>
+        <h5 class="modal-title" id="exampleModalLabel" style="color: black">
+          Wait! Before you go, take a look at this special offer just for you!
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="modal-body">
+        <!-- Replace the img tag with an a tag for the link -->
+        <a href="https://your-special-offer-link.com" target="_blank" style="width: 100%; display: block; text-align: center;">Click here to access the special offer!</a>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Agree</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

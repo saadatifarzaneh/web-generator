@@ -3,4 +3,4 @@ import { saveData } from './save-data.js';
 
 const server = startServer()
 await saveData(20)
-server.close()
+// server.close()

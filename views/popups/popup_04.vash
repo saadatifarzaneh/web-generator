@@ -1,0 +1,43 @@
+@{
+    var height = Math.floor(Math.random() * 20) + 150;
+}
+
+@if (Math.floor(Math.random() * 100) < parseInt(model[0] || 100)){
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: black">
+          We value your feedback. Please take a moment to complete our short survey.
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Directly include a simple survey form in the modal body -->
+        <form id="surveyForm">
+          <div class="form-group">
+            <label for="userExperience">How satisfied are you with our website?</label>
+            <select class="form-control" id="userExperience">
+              <option>Very Satisfied</option>
+              <option>Satisfied</option>
+              <option>Neutral</option>
+              <option>Dissatisfied</option>
+              <option>Very Dissatisfied</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="feedback">Any comments or suggestions?</label>
+            <textarea class="form-control" id="feedback" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" form="surveyForm" class="btn btn-primary">Submit Feedback</button>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -157,10 +157,9 @@ export function startServer() {
 
             //4
             [
-                {
-                    template: 'alert',
-                    data: [randomAlert()],
-                },
+                // {
+                //     template: 'alert', data: [randomAlert()],
+                // },
                 {
                     template: 'sidebar', data: ['menu', [
                         { template: 'image' },
@@ -173,6 +172,36 @@ export function startServer() {
                     ]]
                 }
             ]
+
+            
+            // //5 - New Template
+            // [
+            //     { template: randomPopup(), data:['75'] },
+            //     { template: 'text-message', data: ['Congratulations! You won!'] },
+            //     { template: randomAlert(), data: [] },
+            //     { template: 'full-screen-image', data: [randomAlertPhoto()] }
+            // ]
+
+            // //6 - New Template
+            // [
+            //     { template: 'notification-bar', data: ['You have a new message!'] },
+            //     { template: randomPopup(), data:['20'] },
+            //     { template: 'simple-form', data: res.recaptcha },
+            //     { template: 'half', data: [
+            //         [{ template: 'logo-image', data: [randomLogo()] }],
+            //         [{ template: 'text-block', data: ['Thank you for your visit!'] }]
+            //     ]}
+            // ]
+
+            // //7 - New Template
+            // [
+            //     { template: 'menu', data: ['5', '2'] },
+            //     { template: 'half', data: [
+            //         [{ template: 'image-slide', data: [randomAlertPhoto(), randomAlertPhoto()] }],
+            //         [{ template: 'feedback-form', data: res.recaptcha }]
+            //     ]},
+            //     { template: randomAlertByPhotos(), data: [randomAlertPhoto(), randomAlertPhoto()] }
+            // ]
         ]
 
         res.status(200).render('index', {
