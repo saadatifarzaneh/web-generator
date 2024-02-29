@@ -13,7 +13,7 @@ function findElements() {
         "input-name": "Name Input Box",
         "recaptcha": "Click Captcha"
     };
-    
+
     let annotations = [];
     document.querySelectorAll('.save').forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -21,7 +21,7 @@ function findElements() {
         if (el.dataset.type in annotation_dict)
             new_type = annotation_dict[el.dataset.type];
         else
-            new_type = "Others";
+            new_type = "Other";
 
         annotations.push({
             type: "rectanglelabels",
