@@ -9,7 +9,7 @@ const viewport = {
 
 function findElements() {
     const annotation_dict = {
-        "checkbox": "Checkbox"
+        "checkbox": "Checkbox",
         "input-name": "Name Input Box",
         "label-name": "Name",
         "logo": "Logo",
@@ -17,7 +17,21 @@ function findElements() {
         "video": "Video",
     };
 
+    function makeId(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          counter += 1;
+        }
+        return result;
+    }
+    
     let annotations = [];
+    let generator_annotations = [];
+
     document.querySelectorAll('.save').forEach(el => {
         const rect = el.getBoundingClientRect();
         let new_type = "";
@@ -29,7 +43,7 @@ function findElements() {
         annotations.push({
             type: "rectanglelabels",
             value: {
-                id: 'XXXXXXXXXX',
+                id: makeId(10),
                 x: rect.left,
                 y: rect.top,
                 width: rect.width,
@@ -37,8 +51,15 @@ function findElements() {
                 "rectanglelabels": [
                     new_type
                 ],
-                generator_type: el.dataset.type
             }
+        });
+
+        generator_annotations.push({
+            type: el.dataset.type,
+            x: rect.left,
+            y: rect.top,
+            width: rect.width,
+            height: rect.height,
         });
     });
 
@@ -47,7 +68,7 @@ function findElements() {
         annotations.push({
             type: "rectanglelabels",
             value: {
-                id: 'XXXXXXXXXX',
+                id: makeId(10),
                 x: rect.left,
                 y: rect.top,
                 width: rect.width,
@@ -55,14 +76,21 @@ function findElements() {
                 "rectanglelabels": [
                     annotation_dict['recaptcha']
                 ],
-                generator_type: recaptcha,
             }
         });
+
+        generator_annotations.push({
+            type: "recaptcha",
+            x: rect.left,
+            y: rect.top,
+            width: rect.width,
+            height: rect.height,
+        });
     });
-    
-    return annotations;
+
+    return [annotations, generator_annotations];
 }
-    
+
 export async function saveData(numPages) {
     const browser = await puppeteer.launch({
         headless: 'new' // Opt-in to the new headless mode
@@ -80,7 +108,7 @@ export async function saveData(numPages) {
 
         const screenshotPath = `${output_dir}/page_${index}.png`;
         await page.screenshot({ path: screenshotPath, fullPage: false });
-        const page_annotations = await page.evaluate(findElements)
+        const [page_annotations, page_generator_annotations] = await page.evaluate(findElements)
         let page_id = index + shift_ids
         final_json.push({
             id: page_id,
@@ -89,13 +117,14 @@ export async function saveData(numPages) {
                 result: page_annotations
             }],
             file_upload: `page_${index}.png`,
-            data: {image: screenshotPath},
+            data: { image: screenshotPath },
+            generator_annotations: page_generator_annotations,
         });
 
-        await fs.writeFile(`${output_dir}/page_${index}.elements.json`, JSON.stringify(page_annotations, null, 4));
+        await fs.writeFile(`${output_dir}/page_${index}.elements.json`, JSON.stringify(page_generator_annotations, null, 4));
     }
     await fs.writeFile(`${output_dir}/all_elements.json`, JSON.stringify(final_json, null, 4));
-    
+
     console.log(`Process finished`)
     await browser.close();
 }
