@@ -8,9 +8,21 @@ const viewport = {
 };
 
 function findElements() {
+    const annotation_dict = {
+        "label-name": "Name",
+        "input-name": "Name Input Box",
+        "recaptcha": "Click Captcha"
+    };
+    
     let annotations = [];
     document.querySelectorAll('.save').forEach(el => {
         const rect = el.getBoundingClientRect();
+        let new_type = "";
+        if (el.dataset.type in annotation_dict)
+            new_type = annotation_dict[el.dataset.type];
+        else
+            new_type = "Others";
+
         annotations.push({
             type: "rectanglelabels",
             value: {
@@ -19,10 +31,10 @@ function findElements() {
                 y: rect.top,
                 width: rect.width,
                 height: rect.height,
-                type: el.dataset.type,
                 "rectanglelabels": [
-                    el.dataset.type
+                    new_type
                 ],
+                generator_type: el.dataset.type
             }
         });
     });
@@ -37,10 +49,10 @@ function findElements() {
                 y: rect.top,
                 width: rect.width,
                 height: rect.height,
-                type: 'recaptcha',
                 "rectanglelabels": [
-                    'recaptcha'
+                    annotation_dict['recaptcha']
                 ],
+                generator_type: recaptcha,
             }
         });
     });
