@@ -9,9 +9,12 @@ const viewport = {
 
 function findElements() {
     const annotation_dict = {
-        "label-name": "Name",
+        "checkbox": "Checkbox"
         "input-name": "Name Input Box",
-        "recaptcha": "Click Captcha"
+        "label-name": "Name",
+        "logo": "Logo",
+        "recaptcha": "Click Captcha",
+        "video": "Video",
     };
 
     let annotations = [];
