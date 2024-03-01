@@ -155,7 +155,7 @@ export function startServer() {
                     template: randomAlertByPhotos(),
                     data: [randomAlertPhoto(), randomAlertPhoto(), randomAlertPhoto()]
                 },
-                { template: randomPopup() , data:['50']},
+                { template: randomPopup() , data:['25']},
                 { template: 'logo-image', data: [randomLogo(), '150'] },
                 { template: 'menu' },
                 { template: randomForm(), data: res.recaptcha },

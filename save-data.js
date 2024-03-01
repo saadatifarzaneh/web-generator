@@ -15,6 +15,23 @@ function findElements() {
         "logo": "Logo",
         "recaptcha": "Click Captcha",
         "video": "Video",
+        "popup": "Popup",
+        "alert": "Alert Notification",
+        "button-signup": "Login Button",
+        "button-download": "Download Button",
+        "button-submit": "Submit Button",
+        "button-login": "Login Button",
+        "button-search": "Search Button",
+        "input-search": "Search Input Box",
+        // "label-search": ""
+        "label-email": "Email Address",
+        "input-email": "Email Input Box",
+        // "label-username": 
+        // "input-username":
+        "label-password": "Password",
+        "input-password": "Password Input Box", 
+        "label-address": "Address",
+        "input-address": "Address Input Box",
     };
 
     function makeId(length) {
