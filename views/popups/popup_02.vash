@@ -10,7 +10,7 @@
         <p class="modal-title" id="exampleModalLabel" style="color: black">
           We use cookies to improve your experience. By continuing to use our site, you agree to our cookie policy.
         </p>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close  save" data-type="button-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

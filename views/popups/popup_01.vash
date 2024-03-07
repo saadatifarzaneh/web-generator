@@ -10,7 +10,7 @@
         <h5 class="modal-title" id="exampleModalLabel" style="color: black">
           Sign up for our newsletter and receive 10% off your next purchase!
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close  save" data-type="button-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
