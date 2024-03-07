@@ -34,6 +34,7 @@ input-address\
 label-search\
 input-search\
 button-login\
+button-close\
 button-submit\
 button-search\
 button-download\
