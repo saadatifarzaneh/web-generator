@@ -23,6 +23,7 @@ function findElements() {
         "button-login": "Login Button",
         "button-search": "Search Button",
         "input-search": "Search Input Box",
+        "button-close": "Close Button",
         // "label-search": ""
         "label-email": "Email Address",
         "input-email": "Email Input Box",

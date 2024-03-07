@@ -19,7 +19,7 @@
         <a href="https://your-special-offer-link.com" target="_blank" style="width: 100%; display: block; text-align: center;">Click here to access the special offer!</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary save" data-type="button-close" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
