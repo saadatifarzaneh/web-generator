@@ -1,0 +1,47 @@
+<form>
+    <table>
+        <tr>
+            <td>
+                <label class="save" data-type="label-email">Email:</label>
+            </td>
+            <td>
+                <input type="email" class="save" data-type="input-email" />
+            </td>
+        </tr>      
+        <tr>
+            <td>
+                <label class="save" data-type="label-password">Password:</label>
+            </td>
+            <td>
+                <input type="password" class="save" data-type="input-password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="save" data-type="label-phone">Phone Number:</label>
+            </td>
+            <td>
+                <input type="phone" class="save" data-type="input-phone" />
+            </td>
+        </tr>  
+        <tr>
+            <td>
+                <input type="checkbox" class="save" data-type="checkbox"> <label>Remember me</label>
+            </td>
+            <td></td>
+        </tr>     
+        @if (Math.random() > 0.5) {
+        <tr>
+            <td colspan="2" style="text-align:center">
+                @html.raw(model)
+            </td>
+        </tr>
+        } 
+        <tr>
+            <td>
+                <input type="submit" value="Sign In" class="save" data-type="button-submit" />
+            </td>
+            <td></td>
+        </tr>
+    </table>     
+</form>

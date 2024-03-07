@@ -25,6 +25,8 @@ label-name\
 input-name\
 label-email\
 input-email\
+input-phone\
+label-phone\
 label-username\
 input-username\
 label-password\

@@ -12,6 +12,8 @@ function findElements() {
         "checkbox": "Checkbox",
         "input-name": "Name Input Box",
         "label-name": "Name",
+        "input-phone": "Phone Input Box",
+        "label-phone": "Phone Number",
         "logo": "Logo",
         "recaptcha": "Click Captcha",
         "video": "Video",

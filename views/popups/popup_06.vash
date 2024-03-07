@@ -1,20 +1,16 @@
-@{
-    var height = Math.floor(Math.random() * 20) + 150;
-}
-
 @if (Math.floor(Math.random() * 100) < parseInt(model[0] || 100)){
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div v role="document" style="max-width: 600px;"> <!-- Increase dialog width for a bigger circle -->
-    <div class="modal-content" style="border-radius: 50%; overflow: hidden; position: relative; width: 600px; height: 600px;"> <!-- Adjust for a perfect circle and set size -->
-      <button type="button" class="close  save" data-type="button-close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px; top: 15px; z-index: 2;">
-          <span aria-hidden="true">&times;</span>
+  <div role="document" style="max-width: 400px; margin: auto; margin-top: 50px;"> <!-- Add margin-top for space above the modal -->
+    <div class="modal-content" style="border-radius: 50%; overflow: hidden; position: relative; width: 300px; height: 300px; margin: auto;"> <!-- Adjust for a perfect smaller circle and set size, ensure centering -->
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px; top: 15px; z-index: 2;">
+          <span aria-hidden="true">&times;</span> <!-- Ensure the close sign is clear -->
       </button>
       <div class="modal-body" style="padding: 0; height: 100%; display: flex; justify-content: center; align-items: center; position: relative;"> <!-- Center image in the circle -->
         <!-- Replace the placeholder with your image -->
-        <img src="https://picsum.photos/600" alt="Content Image" style="max-width: 100%; max-height: 100%; border-radius: 50%;"/>
+        <img src="https://picsum.photos/300" alt="Content Image" style="max-width: 100%; max-height: 100%; border-radius: 50%;"/>
         <!-- "You Win" message overlay -->
-        <div style="position: absolute; color: #fff; font-size: 48px; font-weight: bold;">
-          You Win!
+        <div style="position: absolute; color: #fff; font-size: 24px; font-weight: bold; text-align: center; width: 100%;">
+          You Win 1000$!
         </div>
       </div>
       <!-- Adding OK button at the bottom -->
