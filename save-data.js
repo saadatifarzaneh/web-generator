@@ -138,6 +138,7 @@ export async function saveData(numPages) {
             }],
             file_upload: `page_${index}.png`,
             data: { image: screenshotPath },
+            // // old annotations
             // annotations_generator: page_annotations_generator,
         }
         final_json.push(single_json);
