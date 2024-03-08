@@ -128,9 +128,9 @@ export async function saveData(numPages) {
 
         const screenshotPath = `${output_dir}/page_${index}.png`;
         await page.screenshot({ path: screenshotPath, fullPage: false });
-        const [page_annotations, page_generator_annotations] = await page.evaluate(findElements)
+        const [page_annotations, page_annotations_generator] = await page.evaluate(findElements)
         let page_id = index + shift_ids
-        final_json.push({
+        let single_json = {
             id: page_id,
             annotations: [{
                 id: page_id,
@@ -138,10 +138,21 @@ export async function saveData(numPages) {
             }],
             file_upload: `page_${index}.png`,
             data: { image: screenshotPath },
-            generator_annotations: page_generator_annotations,
-        });
-
-        await fs.writeFile(`${output_dir}/page_${index}.elements.json`, JSON.stringify(page_generator_annotations, null, 4));
+            // annotations_generator: page_annotations_generator,
+        }
+        final_json.push(single_json);
+        
+        // // old json format:
+        // let single_json_generator = {
+        //     id: page_id,
+        //     file: `page_${index}.png`,
+        //     full_path: screenshotPath,
+        //     annotations: page_annotations_generator,
+        // }
+        // await fs.writeFile(`${output_dir}/page_${index}.elements_generator.json`, JSON.stringify(single_json_generator, null, 4));
+        
+        // new json format:
+        await fs.writeFile(`${output_dir}/page_${index}.elements.json`, JSON.stringify(single_json, null, 4));
     }
     await fs.writeFile(`${output_dir}/all_elements.json`, JSON.stringify(final_json, null, 4));
 
