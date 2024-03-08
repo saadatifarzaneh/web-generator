@@ -65,6 +65,9 @@ alert
 
 `alert_photos/*.[png|jpg]` (related to alerts_by_photos)\
 `logos/*.[png|jpg]`
+`popup_photos/*.[png|jpg]`
+`video_photos/*.[png|jpg]`
+
 
 ## random images
 
