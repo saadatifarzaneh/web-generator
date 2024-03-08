@@ -4,13 +4,13 @@
           <h2 class="text-center">Sign in</h2>
           <form>
             <div class="form-group">
-              <label for="inputEmail" class="save" data-type="email-label">Email address</label>
-              <input type="email" class="form-control save" data-type="email-input" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <label for="inputEmail" class="save" data-type="label-email">Email address</label>
+              <input type="email" class="form-control save" data-type="input-email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-              <label for="inputPassword" class="save" data-type="password-label">Password</label>
-              <input type="password" class="form-control save" data-type="password-input" id="inputPassword" placeholder="Password">
+              <label for="inputPassword" class="save" data-type="label-password">Password</label>
+              <input type="password" class="form-control save" data-type="input-password" id="inputPassword" placeholder="Password">
             </div>
             @if (Math.random() > 0.5) {
             <div class="form-group">
