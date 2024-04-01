@@ -58,7 +58,7 @@ function findElements() {
     let popups_boundaries = [];
     document.querySelectorAll('.save').forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (el.dataset.type == "popup")
+        if (el.dataset.type == "popup" || el.dataset.type == "alert")
             popups_boundaries.push({
                     x1: rect.left,
                     y1: rect.top,
