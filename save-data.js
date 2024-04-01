@@ -8,11 +8,25 @@ const viewport = {
 };
   
 function findElements() {
-    function doRectanglesIntersect(r1, r2) {
-        const horizontalOverlap = r1.x1 < r2.x2 && r1.x2 > r2.x1;
-        const verticalOverlap = r1.y1 < r2.y2 && r1.y2 > r2.y1;
+    function doRectanglesShareArea(r1, r2) {
+        let x1_1 = parseInt(r1.x1, 10);
+        let x2_1 = parseInt(r1.x2, 10);
+        let y1_1 = parseInt(r1.y1, 10);
+        let y2_1 = parseInt(r1.y2, 10);
+      
+        let x1_2 = parseInt(r2.x1, 10);
+        let x2_2 = parseInt(r2.x2, 10);
+        let y1_2 = parseInt(r2.y1, 10);
+        let y2_2 = parseInt(r2.y2, 10);
+
+        if (x1_1 == x1_1 && x2_1 == x2_2 && y1_1 == y1_2 && y2_1 == y2_2)
+            return false;
+      
+        const horizontalOverlap = x1_1 < x2_2 && x2_1 > x1_2;
+        const verticalOverlap = y1_1 < y2_2 && y2_1 > y1_2;
+
         return horizontalOverlap && verticalOverlap;
-    }
+      }
     
     const annotation_dict = {
         "checkbox": "Checkbox",
@@ -81,8 +95,8 @@ function findElements() {
         }
 
         for (let pb in popups_boundaries)
-            if (doRectanglesIntersect(pb, boundaries))
-                return;
+            if (doRectanglesShareArea(popups_boundaries[pb], boundaries))
+                return
 
         let new_type = "";
         if (el.dataset.type in annotation_dict)
@@ -124,7 +138,7 @@ function findElements() {
         }
 
         for (let pb in popups_boundaries)
-            if (doRectanglesIntersect(pb, boundaries))
+            if (doRectanglesShareArea(popups_boundaries[pb], boundaries))
                 return;
 
         annotations.push({
