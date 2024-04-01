@@ -80,7 +80,7 @@ function findElements() {
             y2: rect.top + rect.height
         }
 
-        for (var pb in popups_boundaries)
+        for (let pb in popups_boundaries)
             if (doRectanglesIntersect(pb, boundaries))
                 return;
 
@@ -123,7 +123,7 @@ function findElements() {
             y2: rect.top + rect.height
         }
 
-        for (var pb in popups_boundaries)
+        for (let pb in popups_boundaries)
             if (doRectanglesIntersect(pb, boundaries))
                 return;
 
