@@ -6,8 +6,14 @@ const viewport = {
     width: 1920, // width of the viewport in pixels
     height: 1080, // height of the viewport in pixels
 };
-
+  
 function findElements() {
+    function doRectanglesIntersect(r1, r2) {
+        const horizontalOverlap = r1.x1 < r2.x2 && r1.x2 > r2.x1;
+        const verticalOverlap = r1.y1 < r2.y2 && r1.y2 > r2.y1;
+        return horizontalOverlap && verticalOverlap;
+    }
+    
     const annotation_dict = {
         "checkbox": "Checkbox",
         "input-name": "Name Input Box",
@@ -32,7 +38,7 @@ function findElements() {
         // "label-username": 
         // "input-username":
         "label-password": "Password",
-        "input-password": "Password Input Box", 
+        "input-password": "Password Input Box",
         "label-address": "Address",
         "input-address": "Address Input Box",
     };
@@ -43,17 +49,41 @@ function findElements() {
         const charactersLength = characters.length;
         let counter = 0;
         while (counter < length) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-          counter += 1;
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
         }
         return result;
     }
-    
-    let annotations = [];
-    let generator_annotations = [];
 
+    let popups_boundaries = [];
     document.querySelectorAll('.save').forEach(el => {
         const rect = el.getBoundingClientRect();
+        if (el.dataset.type == "popup")
+            popups_boundaries.push({
+                    x1: rect.left,
+                    y1: rect.top,
+                    x2: rect.left + rect.width,
+                    y2: rect.top + rect.height,
+                }
+            )
+    });
+
+    let annotations = [];
+    let generator_annotations = [];
+    document.querySelectorAll('.save').forEach(el => {
+        const rect = el.getBoundingClientRect();
+
+        let boundaries = {
+            x1: rect.left,
+            y1: rect.top,
+            x2: rect.left + rect.width,
+            y2: rect.top + rect.height
+        }
+
+        for (var pb in popups_boundaries)
+            if (doRectanglesIntersect(pb, boundaries))
+                return;
+
         let new_type = "";
         if (el.dataset.type in annotation_dict)
             new_type = annotation_dict[el.dataset.type];
@@ -85,6 +115,18 @@ function findElements() {
 
     document.querySelectorAll('iframe[title="reCAPTCHA"]').forEach(el => {
         const rect = el.getBoundingClientRect();
+
+        let boundaries = {
+            x1: rect.left,
+            y1: rect.top,
+            x2: rect.left + rect.width,
+            y2: rect.top + rect.height
+        }
+
+        for (var pb in popups_boundaries)
+            if (doRectanglesIntersect(pb, boundaries))
+                return;
+
         annotations.push({
             type: "rectanglelabels",
             value: {
@@ -129,6 +171,7 @@ export async function saveData(numPages) {
         const screenshotPath = `${output_dir}/page_${index}.png`;
         await page.screenshot({ path: screenshotPath, fullPage: false });
         const [page_annotations, page_annotations_generator] = await page.evaluate(findElements)
+        
         let page_id = index + shift_ids
         let single_json = {
             id: page_id,
@@ -142,7 +185,7 @@ export async function saveData(numPages) {
             // annotations_generator: page_annotations_generator,
         }
         final_json.push(single_json);
-        
+
         // // old json format:
         // let single_json_generator = {
         //     id: page_id,
@@ -151,7 +194,7 @@ export async function saveData(numPages) {
         //     annotations: page_annotations_generator,
         // }
         // await fs.writeFile(`${output_dir}/page_${index}.elements_generator.json`, JSON.stringify(single_json_generator, null, 4));
-        
+
         // new json format:
         await fs.writeFile(`${output_dir}/page_${index}.elements.json`, JSON.stringify(single_json, null, 4));
     }
