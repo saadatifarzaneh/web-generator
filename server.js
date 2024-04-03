@@ -51,7 +51,7 @@ function randomAlert() {
 const popupsDir = './views/popups/';
 const popupsFilenames = getFormsFilenames(popupsDir);
 function randomPopup() {
-    // return `popups/popups_01`;
+    // return `popups/popup_07`;
     return `popups/${selectFrom(popupsFilenames)}`;
 }
 
@@ -189,13 +189,58 @@ export function startServer() {
                 { template: randomForm(), data: res.recaptcha },
                 { template: 'image' }
             ],
+            //6
+            [
+                { template: randomPopup(), data:['35'] },
+                { template: 'logo-image', data: [randomLogo(), '100'] },
+                {
+                    template: 'half', data: [
+                        [{ template: 'image', data: ['500', '250'] }],
+                        [{ template: randomForm(), data: res.recaptcha }]
+                    ]
+                },
+                { template: 'menu' },
+                {
+                    template: 'sidebar', data: ['menu', [
+                        { template: 'video-image', data: [randomVideo()] },
+                        {
+                            template: 'half', data: [
+                                [{ template: 'image', data: ['500', '250'] }],
+                                [{ template: 'image', data: ['500', '250'] }]
+                            ]
+                        }
+                    ]]
+                },
+            ],
+            //7
+            [
+                {
+                    template: randomAlertByPhotos(),
+                    data: [randomAlertPhoto(), randomAlertPhoto()]
+                },
+                { template: 'popup_by_photo_fade', data: [randomPopupPhoto()]},
+                { template: 'logo-menu', data: [randomLogo(), '140', { template: 'menu', data: ['5', '2']}] },
+                {
+                    template: 'half', data: [
+                        [{ template: 'video-image', data: [randomVideo()]}],
+                        [{ template: 'recaptcha', data: res.recaptcha }]
+                    ]
+                },
+                { template: 'image', data: ['300', '150'] },
+                {
+                    template: 'sidebar', data: ['menu', [
+                        { template: randomForm(), data: res.recaptcha },
+                        { template: 'image', data: ['300', '150'] }
+                    ]]
+                },
+            ]
                     
         ]
 
         res.status(200).render('index', {
             recaptcha: res.recaptcha,
             content: selectFrom(templates),
-            // content: templates[5],
+            // content: templates[7],
         });
     });
 

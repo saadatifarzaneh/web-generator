@@ -2,7 +2,7 @@
     var height = Math.floor(Math.random() * 20) + 150;
 }
 
-@if (Math.floor(Math.random() * 100 < parseInt(model[0] || 100))){
+@if (Math.floor(Math.random() * 100) < 10){ // Adjusted probability to 10%
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog save" data-type="popup" role="document">
     <div class="modal-content">
@@ -29,10 +29,7 @@
 <script>
     function claimPrize() {
         var phoneNumber = document.getElementById("phoneInput").value;
-        // Perform any action with the phone number, such as submitting it to a server
-        // For demonstration purposes, alert the entered phone number
         alert("Your phone number is: " + phoneNumber);
-        // Optionally, close the modal after claiming the prize
         $('#exampleModal').modal('hide');
     }
 </script>
