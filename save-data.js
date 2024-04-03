@@ -31,9 +31,9 @@ function findElements() {
     const annotation_dict = {
         "checkbox": "Checkbox",
         "input-name": "Name Input Box",
-        "label-name": "Name",
+        //"label-name": "Name",
         "input-phone": "Phone Input Box",
-        "label-phone": "Phone Number",
+        //"label-phone": "Phone Number",
         "logo": "Logo",
         "recaptcha": "Click Captcha",
         "video": "Video",
@@ -47,13 +47,13 @@ function findElements() {
         "input-search": "Search Input Box",
         "button-close": "Close Button",
         // "label-search": ""
-        "label-email": "Email Address",
+        //"label-email": "Email Address",
         "input-email": "Email Input Box",
         // "label-username": 
         // "input-username":
         "label-password": "Password",
         "input-password": "Password Input Box",
-        "label-address": "Address",
+        //"label-address": "Address",
         "input-address": "Address Input Box",
     };
 

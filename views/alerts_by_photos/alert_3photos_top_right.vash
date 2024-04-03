@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var borderColor = getRandomBorderColor();
-    var imagesDistance = 2;
-    var firstImageAlign = 10;
+    var imagesDistance = 10;
+    var firstImageAlign = 15;
 
     var img1 = document.createElement('img');
     img1.src = "@model[0]";
